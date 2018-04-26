@@ -1,6 +1,4 @@
 Rails.application.routes.draw do
-  get 'account_activation/edit'
-
   post '/rate' => 'rater#create', :as => 'rate'
   root to: "pages#home"
   get "password_reset/new"
@@ -16,8 +14,11 @@ Rails.application.routes.draw do
   resources :categories
   resources :likes
   namespace :admin do
+    root to: "pages#home"
     resources :books
     resources :categories
+    resources :users
+    resources :authors
   end
   get "/search", to: "searchs#search"
 end

@@ -5,4 +5,12 @@ module ApplicationHelper
     gravatar_url = "https://secure.gravatar.com/avatar/#{gravatar_id}?s=#{size}"
     image_tag(gravatar_url, alt: user.name, class: "gravatar")
   end
+
+  def author_collection
+    Author.select(:id, :name)
+  end
+
+  def categories_collection
+    Category.select(:id, :name)
+  end
 end

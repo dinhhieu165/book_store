@@ -15,4 +15,7 @@
 //= require jquery.raty
 //= require ratyrate
 //= require rails-ujs
-//= require pages
+//= require SmoothScroll.min
+//= require jquery.flexisel
+//= require jquery.flexslider
+//= require jquery.magnific-popup

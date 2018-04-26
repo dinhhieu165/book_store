@@ -8,10 +8,9 @@
       <!-- header-bot-->
       <div class="col-md-4 logo_agile">
         <h1>
-          <a href="index.html">
+          <a href="<%= root_path %>">
             <span>H</span>ieu's
             <span>B</span>book
-            <img src="images/logo2.png" alt=" ">
           </a>
         </h1>
       </div>
@@ -22,39 +21,45 @@
           <li>
             <span class="fa fa-phone" aria-hidden="true"></span> 001 234 5678
           </li>
-          <li>
-            <a href="#" data-toggle="modal" data-target="#myModal1">
-              <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
-          </li>
-          <li>
-            <a href="#" data-toggle="modal" data-target="#myModal2">
-              <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
-          </li>
+          <%if current_user %>
+            <div class="dropdown-toggle" data-toggle="dropdown">
+              <%= gravatar_for current_user, size: 40 %>
+              <div class= "user_name">
+                <%= current_user.name %>
+                <span class="caret"></span>
+              </div>
+            </div>
+            <div class="dropdown-menu">
+              <%= link_to user_path(current_user) do %>
+                <span><i class="fa fa-user fa-1x"></i></span>
+                <%= t(".profile") %>
+              <% end %>
+            </div>
+            <%= link_to logout_path, remote: true, id: "logout", data: current_user.id, method: :delete do %>
+            <i class="fa fa-sign-out fa-2x" aria-hidden="true"></i> Log out
+            <% end %>
+          <% else %>
+            <li>
+              <a href="#" data-toggle="modal" data-target="#myModal1">
+                <span class="fa fa-unlock-alt" aria-hidden="true"></span> Sign In </a>
+            </li>
+            <li>
+              <a href="#" data-toggle="modal" data-target="#myModal2">
+                <span class="fa fa-pencil-square-o" aria-hidden="true"></span> Sign Up </a>
+            </li>
+          <% end %>
         </ul>
         <!-- //header lists -->
         <!-- search -->
         <div class="agileits_search">
-          <form action="#" method="post">
-            <input name="Search" type="search" placeholder="How can we help you today?" required="">
-            <button type="submit" class="btn btn-default" aria-label="Left Align">
-              <span class="fa fa-search" aria-hidden="true"> </span>
-            </button>
-          </form>
+            <div class="search">
+            <%= form_tag "/search", method: :get do %>
+              <%= text_field_tag "search", nil, placeholder: "Enter search term...", name: "Search" %>
+              <%= submit_tag "Search", class: "btn btn-primary" %><span class="fa fa-search" aria-hidden="true"> </span>
+            <% end %>
+            </div>
         </div>
         <!-- //search -->
-        <!-- cart details -->
-        <div class="top_nav_right">
-          <div class="wthreecartaits wthreecartaits2 cart cart box_1">
-            <form action="#" method="post" class="last">
-              <input type="hidden" name="cmd" value="_cart">
-              <input type="hidden" name="display" value="1">
-              <button class="w3view-cart" type="submit" name="submit" value="">
-                <i class="fa fa-cart-arrow-down" aria-hidden="true"></i>
-              </button>
-            </form>
-          </div>
-        </div>
-        <!-- //cart details -->
         <div class="clearfix"></div>
       </div>
       <div class="clearfix"></div>
@@ -78,15 +83,7 @@
               <a href="#" data-toggle="modal" data-target="#myModal2">
                 Sign Up Now</a>
             </p>
-            <form action="#" method="post">
-              <div class="styled-input agile-styled-input-top">
-                <input type="text" placeholder="User Name" name="Name" required="">
-              </div>
-              <div class="styled-input">
-                <input type="password" placeholder="Password" name="password" required="">
-              </div>
-              <input type="submit" value="Sign In">
-            </form>
+            <%= render "layouts/form_login" %>
             <div class="clearfix"></div>
           </div>
           <div class="clearfix"></div>
@@ -111,27 +108,12 @@
             <p>
               Come join the Grocery Shoppy! Let's set up your Account.
             </p>
-            <form action="#" method="post">
-              <div class="styled-input agile-styled-input-top">
-                <input type="text" placeholder="Name" name="Name" required="">
-              </div>
-              <div class="styled-input">
-                <input type="email" placeholder="E-mail" name="Email" required="">
-              </div>
-              <div class="styled-input">
-                <input type="password" placeholder="Password" name="password" id="password1" required="">
-              </div>
-              <div class="styled-input">
-                <input type="password" placeholder="Confirm Password" name="Confirm Password" id="password2" required="">
-              </div>
-              <input type="submit" value="Sign Up">
-            </form>
+            <%= render "layouts/form_signup" %>
             <p>
               <a href="#">By clicking register, I agree to your terms</a>
             </p>
           </div>
         </div>
       </div>
-      <!-- //Modal content-->
     </div>
   </div>

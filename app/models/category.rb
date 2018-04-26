@@ -4,4 +4,5 @@ class Category < ApplicationRecord
   scope :top_categories, -> {
     where(id: BookCategory.order("COUNT(*)").group(:category_id).limit(10).pluck(:category_id))
   }
+  scope :desc_at_create, -> {order(created_at: :desc)}
 end

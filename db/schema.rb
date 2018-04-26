@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180426085433) do
+ActiveRecord::Schema.define(version: 20180426083600) do
 
   create_table "authors", force: :cascade do |t|
     t.string "name"
@@ -30,8 +30,8 @@ ActiveRecord::Schema.define(version: 20180426085433) do
   end
 
   create_table "book_categories", force: :cascade do |t|
-    t.integer "book_id"
     t.integer "category_id"
+    t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_book_categories_on_book_id"
@@ -39,12 +39,13 @@ ActiveRecord::Schema.define(version: 20180426085433) do
   end
 
   create_table "books", force: :cascade do |t|
-    t.string "name"
+    t.string "title"
     t.string "publisher"
     t.text "describe"
-    t.integer "author_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "author_id"
+    t.string "cover_image"
     t.index ["author_id"], name: "index_books_on_author_id"
   end
 
@@ -55,12 +56,12 @@ ActiveRecord::Schema.define(version: 20180426085433) do
   end
 
   create_table "likes", force: :cascade do |t|
-    t.boolean "type"
     t.integer "user_id"
     t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_likes_on_book_id"
+    t.index ["user_id", "book_id"], name: "index_likes_on_user_id_and_book_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -102,10 +103,14 @@ ActiveRecord::Schema.define(version: 20180426085433) do
     t.string "name"
     t.string "email"
     t.string "password_digest"
-    t.string "avatar"
     t.integer "role"
+    t.string "avatar"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "activation_digest"
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
+    t.string "remember_digest"
   end
 
 end

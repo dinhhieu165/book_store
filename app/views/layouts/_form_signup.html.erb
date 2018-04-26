@@ -1,0 +1,19 @@
+<%= form_for :user, url: users_path do |f| %>
+  <div class="styled-input agile-styled-input-top">
+  <%= f.text_field :name, class: "form-control", placeholder: "Name"%>
+  </div>
+  <br>
+  <div class="styled-input">
+  <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
+  </div>
+  <br>
+  <div class="styled-input">
+  <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+  <br>
+  </div>
+  <div class="styled-input">
+  <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmation" %>
+  </div>
+  <br>
+  <%= f.submit "Register", class: "btn btn-success" %>
+<% end %>

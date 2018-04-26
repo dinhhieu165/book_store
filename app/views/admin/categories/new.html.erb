@@ -1,7 +1,1 @@
-<div class="col-md-4">
-  <%= form_for [:admin, @category] do |f| %>
-    <%= f.label :name %>
-    <%= f.text_field :name, class: "form-control" %>
-    <%= f.submit :submit, class: "btn btn-primary" %>
-  <% end %>
-</div>
+<%= render "form" %>

@@ -1,8 +1,12 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "font-awesome";
-@import "style";
 @import "color";
+
+
+body {
+  padding-top: 0px;
+}
 
 .check_box {
   display: block;
@@ -59,4 +63,151 @@
 
 .kid-menu li {
   text-transform: uppercase;
+}
+
+.fix-sidebar{
+  top: 50px;
+}
+
+.agileits_search {
+    margin-top: 16px;
+    float: left;
+    width: 80%;
+}
+.agileits_search input[type="search"]{
+    outline: none;
+    border: 1px solid #191e21;
+    background: #fff;
+    border-right-color: transparent;
+    color: #191e21;
+    padding: 10px;
+    font-size: 14px;
+  float: left;
+  width:90%;
+  letter-spacing: 1px;
+}
+.agileits_search .btn-default {
+    border: none;
+    width:60px;
+    height: 42px;
+    outline: none;
+    box-shadow: none;
+    background: #1accfd;
+    padding: 0;
+    border-radius: inherit;
+    -webkit-appearance: none;
+    -webkit-transition: .5s all;
+    -moz-transition: .5s all;
+    transition: .5s all;
+}
+.agileits_search .btn-default:hover {
+  background:#FF5722;
+}
+.agileits_search span {
+    color: #fff;
+}
+#agileinfo_search {
+    padding: 9.5px 2px;
+}
+.agileits-navi_search {
+  float: left;
+  width: 23%;
+}
+#agileinfo-nav_search {
+    outline: none;
+    border: none;
+    color: #000;
+    font-size: 14px;
+    background: #f3f3f3;
+  padding:15px 10px;
+  width:100%;
+  letter-spacing: 1px;
+}
+
+#custom-search-input {
+    padding: 3px;
+    border: solid 1px #D1E0EE;
+    border-radius: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+    background-color: #fff;
+    width: 80%;
+    color: #000;
+}
+
+#custom-search-input input{
+    border: 0;
+    box-shadow: none;
+}
+
+#custom-search-input button{
+    margin: 2px 0 0 0;
+    background: none;
+    box-shadow: none;
+    border: 0;
+    color: #666666;
+    padding: 0 8px 0 10px;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input button:hover{
+    border: 0;
+    box-shadow: none;
+    border-left: solid 1px #ccc;
+}
+
+#custom-search-input .glyphicon-search{
+    font-size: 23px;
+}
+.input-lg {
+    height: 29px;
+    padding: 0px 10px;
+    font-size: 15px;
+    line-height: 1.3333333;
+    border-radius: 0;
+    -webkit-border-radius: 0px;
+    -moz-border-radius: 0px;
+    -ms-border-radius: 0px;
+    -o-border-radius: 0px;
+}
+#custom-search-input .glyphicon-search {
+    font-size: 16px;
+}
+.btn-default {
+    border-color: #D1E0EE;
+}
+.btn {
+    display: inline-block;
+}
+.search-hotel input[type="search"] {
+  background:#fff;
+  border: none;
+  width: 81%;
+  outline: none;
+  padding: 11px 10px 10px 10px;
+  font-size: 13px;
+  color: #c4c4c4;
+}
+.search-hotel form input[type="submit"]{
+  background: url(../images/search.png) no-repeat 13px 11px #1accfd;
+  width: 44px;
+  height: 39px;
+  border: none;
+  padding:0;
+  margin-top: 0;
+  }
+.search-grid-left{
+  padding: 15px;
+  background:#f5f4f0;
+}
+  h3.agileits-sear-head {
+    color: #FF5722;
+    margin-bottom: 20px;
+    font-size: 21px;
+}
+.search-hotel{
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e3db;
 }
