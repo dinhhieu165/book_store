@@ -1,0 +1,10 @@
+<div class="col-md-4">
+  <%= form_for [:admin, @book] do |f|%>
+    <%= f.label :title %>
+    <%= f.text_field :title, class: "form-control" %>
+    <%= f.label :publisher %>
+    <%= f.text_field :publisher, class: "form-control" %>
+    <%= f.label :describe %>
+    <%= f.text_area :describe, class: "form-control" %>
+  <% end %>
+</div>
