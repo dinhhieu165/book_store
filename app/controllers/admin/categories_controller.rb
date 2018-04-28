@@ -1,6 +1,5 @@
 class Admin::CategoriesController < Admin::BaseController
   before_action :load_category, only: [:update, :edit, :destroy]
-
   def new
     @category = Category.new
   end

@@ -1,6 +1,8 @@
 Rails.application.routes.draw do
+  get 'account_activation/edit'
   post '/rate' => 'rater#create', :as => 'rate'
   root to: "pages#home"
+
   get "password_reset/new"
   get "password_reset/edit"
   get "/signup", to: "users#new"

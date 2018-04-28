@@ -12,6 +12,7 @@
 
 ActiveRecord::Schema.define(version: 20180426083600) do
 
+
   create_table "authors", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", null: false
@@ -32,21 +33,19 @@ ActiveRecord::Schema.define(version: 20180426083600) do
   create_table "book_categories", force: :cascade do |t|
     t.integer "category_id"
     t.integer "book_id"
-    t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_book_categories_on_book_id"
     t.index ["category_id"], name: "index_book_categories_on_category_id"
   end
 
   create_table "books", force: :cascade do |t|
-    t.string "title"
+    t.string "name"
     t.string "publisher"
     t.text "describe"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "author_id"
     t.string "cover_image"
-    t.index ["author_id"], name: "index_books_on_author_id"
   end
 
   create_table "categories", force: :cascade do |t|
@@ -56,13 +55,12 @@ ActiveRecord::Schema.define(version: 20180426083600) do
   end
 
   create_table "likes", force: :cascade do |t|
+    t.boolean "type"
     t.integer "user_id"
     t.integer "book_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["book_id"], name: "index_likes_on_book_id"
     t.index ["user_id", "book_id"], name: "index_likes_on_user_id_and_book_id", unique: true
-    t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
   create_table "overall_averages", force: :cascade do |t|
