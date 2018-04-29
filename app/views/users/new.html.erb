@@ -1,26 +1,25 @@
-<<<<<<< HEAD
-<h3>Sign Up</h3>
-<br>
-<%= form_for @user do |f| %>
-  <div class="styled-input agile-styled-input-top">
-  <%= f.text_field :name, class: "form-control", placeholder: "Name"%>
-  </div>
-  <br>
-  <div class="styled-input">
-  <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
-  </div>
-  <br>
-  <div class="styled-input">
-  <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
-  <br>
-  </div>
-  <div class="styled-input">
-  <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmation" %>
-  </div>
-  <br>
-  <%= f.submit "Register", class: "btn btn-primary" %>
-<% end %>
-=======
-<h1>Users#new</h1>
-<p>Find me in app/views/users/new.html.erb</p>
->>>>>>> master
+<% provide(:title, 'Sign up') %>
+<h3 class="text-center">Sign up</h3>
+<div class="row">
+<div class="col-md-6 col-md-offset-3">
+  <%= form_for(@user, url: signup_path) do |f| %>
+    <div class="styled-input agile-styled-input-top">
+    <%= f.text_field :name, class: "form-control", placeholder: "Name"%>
+    </div>
+    <br>
+    <div class="styled-input">
+    <%= f.email_field :email, class: "form-control", placeholder: "Email"%>
+    </div>
+    <br>
+    <div class="styled-input">
+    <%= f.password_field :password, class: "form-control", placeholder: "Password" %>
+    <br>
+    </div>
+    <div class="styled-input">
+    <%= f.password_field :password_confirmation, class: "form-control", placeholder: "Confirmation" %>
+    </div>
+    <br>
+    <%= f.submit "Register", class: "btn btn-primary" %>
+  <% end %>
+</div>
+</div>
